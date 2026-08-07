@@ -1,0 +1,6 @@
+{
+  "name": "Devocional Diário",
+  "description": "Plataforma completa de devocionais bíblicos diários, planos de leitura, diário espiritual, pedidos de oração, notificações e assistente bíblico com IA.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
