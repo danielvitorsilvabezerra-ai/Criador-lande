@@ -147,6 +147,39 @@ p{font-size:84px;line-height:1.3;color:var(--mt)}
 .tree .g3{margin-left:120px;display:flex;gap:16px;border:0;background:none;padding:0}
 .tree .g3 i{font-style:normal;border:3px solid var(--g);background:var(--g);color:#031a08;border-radius:24px;padding:10px 28px;font-size:46px;font-weight:700}
 .gate{border:3px dashed #0ad92788;border-radius:36px;padding:22px 34px;font-size:52px;font-weight:600;color:var(--wh);line-height:1.2;margin-top:6px}
+/* na prática */
+.scr{display:grid;grid-template-columns:repeat(6,1fr);gap:56px;margin-top:56px}
+.scr>div{display:flex;flex-direction:column;align-items:center;text-align:center}
+.sp{width:370px;height:740px;border-radius:70px;padding:16px;background:linear-gradient(145deg,#4b524e,#111 40%,#2b302d);box-shadow:0 80px 160px -50px #000,0 0 0 3px #ffffff26 inset,0 0 200px -60px #0ad92788}
+.sp img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:56px}
+.on .scr>div:nth-child(odd) .sp{animation:fl 8s ease-in-out infinite}
+.on .scr>div:nth-child(even) .sp{animation:fl 8s ease-in-out -4s infinite}
+.scr h3{font-size:58px;margin-top:34px;color:var(--wh)}
+.scr p{font-size:44px;line-height:1.25;margin-top:14px}
+/* performance */
+.pf{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;margin-top:60px;align-items:stretch}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.kp>div{border:3px solid var(--ln);border-radius:60px;background:linear-gradient(165deg,#ffffff0e,#ffffff03);padding:46px 54px;display:flex;flex-direction:column}
+.kp small,.ch3 small{font-size:48px;letter-spacing:.14em;font-weight:700;color:var(--mt)}
+.kp b{font-family:"Space Grotesk",Inter,sans-serif;font-size:130px;color:var(--g);line-height:1.1;letter-spacing:-.03em;margin-top:8px}
+.kp span{font-size:50px;line-height:1.25;color:var(--wh)}
+.kp b u{text-decoration:none;font-size:56px;color:var(--mt);margin-right:20px;letter-spacing:0;font-weight:600}
+.kp em{font-style:normal;color:var(--g);font-weight:600}
+.mt2{height:22px;border-radius:20px;background:#ffffff14;margin-top:auto;overflow:hidden}
+.kp span+.mt2{margin-top:30px}
+.mt2 i{display:block;height:100%;width:var(--w);border-radius:20px;background:linear-gradient(90deg,#0ad92744,var(--g));transform-origin:left}
+.on .mt2 i{animation:gx 1.4s cubic-bezier(.2,.7,.2,1) both;animation-delay:1s}
+@keyframes gx{from{transform:scaleX(0)}}
+.ch3{display:flex;flex-direction:column;padding:56px 64px}
+.ch3 small{color:var(--g)}
+.ch3 .sub{font-size:50px;margin-top:10px}
+.cb{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;align-items:end;margin-top:30px;border-bottom:4px solid #ffffff33}
+.cb div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.cb b{font-family:"Space Grotesk",Inter,sans-serif;font-size:52px;color:var(--wh);margin-bottom:16px;white-space:nowrap}
+.cb i{width:100%;height:calc(var(--h)*.78);min-height:24px;border-radius:30px 30px 8px 8px;background:linear-gradient(var(--g),#0ad92722);transform-origin:bottom}
+.on .cb i{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*.15s + .9s)}
+.cx{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:20px}.cx span{text-align:center;font-size:54px;font-weight:700;color:var(--wh)}
+.ch3 .cap{font-size:46px;margin-top:8px;text-align:center}
 /* final */
 .ch{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:100px}
 .ch .no{background:#16130d;border-color:#ffffff12}
@@ -293,6 +326,20 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
  </div>
 </section>
 
+<!-- 5b · NA PRÁTICA -->
+<section class="s alt" id="s5b" style="padding-top:100px;padding-bottom:170px">
+ <span class="eb a">NA PRÁTICA</span>
+ <h2 class="a" style="--i:1;font-size:150px">Para que serve o ANOTEI <span class="g">no dia a dia.</span></h2>
+ <div class="scr">
+  <div class="a" style="--i:2"><div class="sp"><img src="v/t1.jpg" alt="Tela inicial do ANOTEI"></div><h3>Ver o lucro do mês</h3><p>Faturamento, despesas, lucro e caixa.</p></div>
+  <div class="a" style="--i:3"><div class="sp"><img src="v/t2.jpg" alt="Alertas e ações rápidas"></div><h3>Ser avisado</h3><p>Estoque baixo e contas a pagar em alerta.</p></div>
+  <div class="a" style="--i:4"><div class="sp"><img src="v/t3.jpg" alt="Tela do financeiro"></div><h3>Controlar o caixa</h3><p>Entradas, saídas e saldo do período.</p></div>
+  <div class="a" style="--i:5"><div class="sp"><img src="v/t4.jpg" alt="Tela de vendas"></div><h3>Registrar vendas</h3><p>Total vendido, pedidos e ticket médio.</p></div>
+  <div class="a" style="--i:6"><div class="sp"><img src="v/t5.jpg" alt="Tela de estoque"></div><h3>Cuidar do estoque</h3><p>Produtos por categoria e o que repor.</p></div>
+  <div class="a" style="--i:7"><div class="sp"><img src="v/t6.jpg" alt="Tela de clientes"></div><h3>Lembrar dos clientes</h3><p>Quem comprou e como prefere pagar.</p></div>
+ </div>
+</section>
+
 <!-- COMUNICAÇÃO E CONTEÚDO -->
 <section class="s alt" id="scom">
  <span class="eb a">COMUNICAÇÃO E CONTEÚDO</span>
@@ -416,6 +463,32 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
   <div class="card hi a" style="--i:6"><div class="ph3"><div class="num">3</div><small>ESCALA</small></div><h3>Escalar os vencedores</h3>
    <div class="gate">Gatilho: mais de 5 criativos vencedores</div>
    <ul><li>Campanha com meta de <b>custo por resultado</b></li><li>Aumentar o <b>orçamento diário</b></li><li>Orçamento por <b>horário vencedor</b> do público</li></ul>
+  </div>
+ </div>
+</section>
+
+<!-- 11c · PERFORMANCE -->
+<section class="s" id="s11c">
+ <span class="eb a">PERFORMANCE · METAS DO TESTE</span>
+ <h2 class="a" style="--i:1;font-size:160px">Cada métrica <span class="g">aponta o problema.</span></h2>
+ <div class="pf">
+  <div class="kp">
+   <div class="a" style="--i:2"><small>CTR DO ANÚNCIO</small><b><u>mín.</u>1%</b><span>Abaixo disso: ajustar o <em>criativo</em></span><div class="mt2"><i style="--w:62%"></i></div></div>
+   <div class="a" style="--i:3"><small>CONVERSÃO DA LP</small><b><u>mín.</u>3%</b><span>Muito clique e pouco cadastro: ajustar a <em>LP</em></span><div class="mt2"><i style="--w:48%"></i></div></div>
+   <div class="a" style="--i:4"><small>CHECKOUT → COMPRA</small><b><u>mín.</u>30%</b><span>Abandono no checkout: ajustar a <em>oferta</em></span><div class="mt2"><i style="--w:74%"></i></div></div>
+   <div class="a" style="--i:5"><small>CUSTO POR VENDA</small><b><u>máx.</u>R$ 79,90</b><span>Menor que a 1ª venda do trimestral: <em>ROI positivo</em></span><div class="mt2"><i style="--w:86%"></i></div></div>
+  </div>
+  <div class="card ch3 a" style="--i:6">
+   <small>SIMULAÇÃO DE RECEITA RECORRENTE</small>
+   <p class="sub">Plano trimestral · R$ 26,63 por mês por assinante</p>
+   <div class="cb">
+    <div><b>R$ 1.332</b><i style="--h:10%;--i:1"></i></div>
+    <div><b>R$ 2.663</b><i style="--h:20%;--i:2"></i></div>
+    <div><b>R$ 6.658</b><i style="--h:50%;--i:3"></i></div>
+    <div><b>R$ 13.315</b><i style="--h:100%;--i:4"></i></div>
+   </div>
+   <div class="cx"><span>50</span><span>100</span><span>250</span><span>500</span></div>
+   <p class="cap">Assinantes ativos → receita por mês</p>
   </div>
  </div>
 </section>
