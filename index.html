@@ -129,6 +129,24 @@ p{font-size:84px;line-height:1.3;color:var(--mt)}
 .funnel .card h3{font-size:92px}
 .tips{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;margin-top:60px}
 .tips div{font-size:64px;font-weight:600;line-height:1.25;padding-left:44px;border-left:12px solid var(--g)}
+/* estrutura de campanha */
+.camp{display:grid;grid-template-columns:1fr 120px 1fr 120px 1fr;align-items:stretch;margin-top:56px}
+.camp .ar{display:grid;place-items:center;font-size:120px;color:var(--g)}
+.camp .card{padding:56px 60px;display:flex;flex-direction:column}
+.camp .ph3{display:flex;align-items:center;gap:34px;margin-bottom:30px}
+.camp .ph3 .num{margin:0}
+.camp .ph3 small{font-size:58px;letter-spacing:.14em;font-weight:700;color:var(--g)}
+.camp h3{font-size:96px}
+.camp ul{list-style:none;display:grid;gap:22px;margin-top:34px;font-size:56px;line-height:1.25;color:var(--wh)}
+.camp li{padding-left:56px;position:relative}
+.camp li:before{content:"✓";position:absolute;left:0;color:var(--g);font-weight:700}
+.camp li b{color:var(--g);font-weight:600}
+.tree{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:6px}
+.tree span{border:3px solid #0ad92766;background:#0ad9271a;border-radius:30px;padding:10px 34px;font-size:50px;font-weight:600}
+.tree span:nth-child(2){margin-left:60px}
+.tree .g3{margin-left:120px;display:flex;gap:16px;border:0;background:none;padding:0}
+.tree .g3 i{font-style:normal;border:3px solid var(--g);background:var(--g);color:#031a08;border-radius:24px;padding:10px 28px;font-size:46px;font-weight:700}
+.gate{border:3px dashed #0ad92788;border-radius:36px;padding:22px 34px;font-size:52px;font-weight:600;color:var(--wh);line-height:1.2;margin-top:6px}
 /* final */
 .ch{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:100px}
 .ch .no{background:#16130d;border-color:#ffffff12}
@@ -378,6 +396,28 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
   <div class="a" style="--i:13">Assinaturas</div><div class="a" style="--i:14">Custo por cliente</div><div class="a" style="--i:15">Receita</div><div class="a" style="--i:16">Engajamento</div>
  </div>
  <p class="obj a" style="--i:17"><b>Objetivo:</b> investir mais nas campanhas e ofertas que geram assinaturas.</p>
+</section>
+
+<!-- 11b · ESTRUTURA DE CAMPANHA -->
+<section class="s alt" id="s11b">
+ <span class="eb a">ESTRUTURA DE CAMPANHA · META ADS</span>
+ <h2 class="a" style="--i:1;font-size:170px">Testar, validar <span class="g">e escalar.</span></h2>
+ <div class="camp">
+  <div class="card a" style="--i:2"><div class="ph3"><div class="num">1</div><small>TESTE</small></div><h3>ABO 1-1-3</h3>
+   <div class="tree"><span>1 campanha</span><span>1 conjunto</span><span class="g3"><i>C1</i><i>C2</i><i>C3</i></span></div>
+   <ul><li>Roda por <b>48 horas</b> para gerar métricas</li><li>Sem venda? Descobrir se o problema é o <b>criativo</b>, a <b>LP</b> ou a <b>oferta</b></li></ul>
+  </div>
+  <div class="ar af" style="--i:3">→</div>
+  <div class="card a" style="--i:4"><div class="ph3"><div class="num">2</div><small>PRÉ-ESCALA</small></div><h3>Modelar o que vendeu</h3>
+   <div class="gate">Gatilho: venda + ROI com criativo vencedor</div>
+   <ul><li>Produzir <b>mais criativos</b></li><li>Modelar os <b>criativos vencedores</b>, que já venderam</li></ul>
+  </div>
+  <div class="ar af" style="--i:5">→</div>
+  <div class="card hi a" style="--i:6"><div class="ph3"><div class="num">3</div><small>ESCALA</small></div><h3>Escalar os vencedores</h3>
+   <div class="gate">Gatilho: mais de 5 criativos vencedores</div>
+   <ul><li>Campanha com meta de <b>custo por resultado</b></li><li>Aumentar o <b>orçamento diário</b></li><li>Orçamento por <b>horário vencedor</b> do público</li></ul>
+  </div>
+ </div>
 </section>
 
 <!-- 12 · FECHAMENTO -->
