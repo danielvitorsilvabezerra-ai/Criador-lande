@@ -209,7 +209,7 @@ p{font-size:84px;line-height:1.3;color:var(--mt)}
 .bud{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;margin-top:60px}
 .bud .card{padding:52px 56px;display:flex;flex-direction:column}
 .bud small{font-size:46px;letter-spacing:.12em;font-weight:700;color:var(--g)}
-.bud b{font-family:"Space Grotesk",Inter,sans-serif;font-size:150px;line-height:1.1;letter-spacing:-.03em;margin-top:14px}
+.bud b{font-family:"Space Grotesk",Inter,sans-serif;font-size:124px;white-space:nowrap;line-height:1.1;letter-spacing:-.03em;margin-top:14px}
 .bud .card p{font-size:52px;line-height:1.25;margin-bottom:34px}
 .bb{height:24px;border-radius:20px;background:#ffffff14;margin-top:auto;overflow:hidden}
 .bb i{display:block;height:100%;width:var(--w);min-width:24px;border-radius:20px;background:linear-gradient(90deg,#0ad92755,var(--g));transform-origin:left}
@@ -217,6 +217,13 @@ p{font-size:84px;line-height:1.3;color:var(--mt)}
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:56px}
 .rules div{font-size:52px;line-height:1.25;padding-left:44px;border-left:12px solid var(--g);color:var(--wh)}
 .rules b{display:block;color:var(--g);font-size:46px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.obj2{border:3px solid var(--g);background:#0ad9271f;border-radius:200px;padding:20px 54px;font-size:60px;font-weight:600;white-space:nowrap}
+.obj2 b{color:var(--g)}
+.brn{border-radius:40px;padding:26px 36px;font-size:52px;line-height:1.25;color:var(--wh);margin-top:24px}
+.brn small{display:block;font-size:44px;letter-spacing:.14em;font-weight:700;margin-bottom:6px}
+.brn.no{border:3px solid #ff6b6b66;background:#ff6b6b14}.brn.no small{color:var(--red)}
+.brn.ok{border:3px solid #0ad92788;background:#0ad9271a}.brn.ok small{color:var(--g)}
+.brn b{font-weight:600}
 /* final */
 .ch{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:100px}
 .ch .no{background:#16130d;border-color:#ffffff12}
@@ -250,7 +257,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 <section class="s alt" id="s1b">
  <div class="row" style="justify-content:space-between">
   <div class="col" style="flex:1">
-   <span class="eb a">O QUE É O ANOTEI</span>
+   <span class="eb a">IDEIA E PROPOSTA DE VALOR</span>
    <h2 class="a" style="--i:1;font-size:190px">Um app de gestão <span class="g">para pequenos negócios.</span></h2>
    <p class="def a" style="--i:2">Para micro e pequenos empreendedores organizarem a empresa e terem <b>mais controle das finanças e da operação</b>, de um jeito simples, visual e intuitivo.</p>
    <div class="mg">
@@ -314,24 +321,9 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
  </div>
 </section>
 
-<!-- 4 · A VIRADA -->
-<section class="s alt" id="s4">
- <span class="eb a">A VIRADA</span>
- <h2 class="a" style="--i:1;font-size:220px">Do caderno <span class="g">para o controle.</span></h2>
- <div class="pairs">
-  <div class="a" style="--i:2"><span>Anotação</span><b>→ Organização</b></div>
-  <div class="a" style="--i:3"><span>Venda</span><b>→ Faturamento</b></div>
-  <div class="a" style="--i:4"><span>Despesa</span><b>→ Financeiro</b></div>
-  <div class="a" style="--i:5"><span>Produto</span><b>→ Estoque</b></div>
-  <div class="a" style="--i:6"><span>Cliente</span><b>→ Histórico</b></div>
-  <div class="a" style="--i:7"><span>Confusão</span><b>→ Clareza</b></div>
- </div>
- <div class="big a" style="--i:8">Você registra. <span class="g">O ANOTEI organiza.</span></div>
-</section>
-
 <!-- 6 · PROMESSAS -->
 <section class="s alt" id="s6">
- <span class="eb a">O QUE O USUÁRIO RECEBE</span>
+ <span class="eb a">PROPOSTA DE VALOR · O QUE O USUÁRIO RECEBE</span>
  <h2 class="a" style="--i:1;font-size:170px">O que muda no seu negócio <span class="g">depois do ANOTEI.</span></h2>
  <div class="grid4">
   <div class="card a" style="--i:2"><div class="num">1</div><h3>Saber para onde o dinheiro vai</h3><p>Cada entrada e saída registrada, com o saldo à vista.</p></div>
@@ -379,7 +371,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- COMUNICAÇÃO E CONTEÚDO -->
 <section class="s alt" id="scom">
- <span class="eb a">COMUNICAÇÃO E CONTEÚDO</span>
+ <span class="eb a">COPYWRITING E COMUNICAÇÃO · CONTEÚDO</span>
  <h2 class="a" style="--i:1;font-size:170px">Sua empresa merece mais do que um <span class="g">caderno.</span></h2>
  <div class="chips" style="margin-top:40px">
   <span class="a" style="--i:2">Próximo</span><span class="a" style="--i:3">Simples</span><span class="a" style="--i:4">Moderno</span><span class="a" style="--i:5">Educativo</span>
@@ -398,7 +390,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 <section class="s" id="s9">
  <div class="row" style="justify-content:space-between">
   <div class="col" style="flex:1">
-   <span class="eb a">TRÁFEGO PAGO · META ADS E TIKTOK ADS</span>
+   <span class="eb a">ESTRATÉGIA DE AQUISIÇÃO · O CRIATIVO</span>
    <h2 class="a" style="--i:1">O criativo <span class="g">que vai rodar.</span></h2>
    <div class="hook" style="gap:26px;margin-top:60px">
     <div class="a" style="--i:2;padding:34px 56px"><b style="font-size:54px">1 · DOR</b><span style="font-size:64px">A desorganização de quem controla tudo no caderno.</span></div>
@@ -437,7 +429,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- 7b · COPY DA LP -->
 <section class="s alt" id="s7b">
- <span class="eb a">COPY DA LANDING PAGE</span>
+ <span class="eb a">COPYWRITING E COMUNICAÇÃO · COPY DA LP</span>
  <h2 class="a" style="--i:1;font-size:140px">Cada frase tem <span class="g">uma função.</span></h2>
  <div class="cp">
   <div class="cpl">
@@ -461,7 +453,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 <section class="s" id="s7c">
  <div class="row" style="justify-content:space-between;align-items:center;gap:90px">
   <div class="col" style="width:1500px;flex:none">
-   <span class="eb a">DESIGN DA LANDING PAGE</span>
+   <span class="eb a">DESIGN E UX · LANDING PAGE</span>
    <h2 class="a" style="--i:1;font-size:160px">Visual que passa <span class="g">confiança.</span></h2>
    <div class="sw">
     <div class="a" style="--i:2"><i style="background:#0AD927"></i><b>#0AD927</b><span>Verde: dinheiro e ação</span></div>
@@ -487,7 +479,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 <section class="s alt" id="s8">
  <div class="row" style="justify-content:space-between">
   <div class="col" style="flex:1">
-   <span class="eb a">PROVA SOCIAL</span>
+   <span class="eb a">VENDAS E CONVERSÃO · PROVA SOCIAL</span>
    <div class="quote a" style="--i:1">Quem conhece, <span class="g">entende a diferença.</span></div>
    <p class="a" style="--i:2;margin-top:70px">Depoimento real de quem conheceu o ANOTEI.</p>
   </div>
@@ -499,7 +491,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- 10 · MONETIZAÇÃO -->
 <section class="s alt" id="s10">
- <span class="eb a">MONETIZAÇÃO</span>
+ <span class="eb a">PROCESSO DE VENDAS E CONVERSÃO · PLANOS</span>
  <h2 class="a" style="--i:1;font-size:190px">Começa grátis. <span class="g">Cresce no Premium.</span></h2>
  <div class="plans">
   <div class="pl a" style="--i:2"><small>GRÁTIS</small><div class="pr">R$ 0</div><div class="pe">para sempre</div><ul><li>Dashboard simples</li><li>Até 3 produtos</li><li>5 movimentações</li></ul></div>
@@ -512,7 +504,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- 11 · COMO ESCALAR -->
 <section class="s" id="s11">
- <span class="eb a">COMO ESCALAR E MEDIR</span>
+ <span class="eb a">PROCESSO DE VENDAS E CONVERSÃO · FUNIL</span>
  <h2 class="a" style="--i:1">Um funil simples <span class="g">e repetível.</span></h2>
  <div class="funnel">
   <div class="card a" style="--i:2"><div class="num">1</div><h3>Anúncio</h3><p>Criativo em vídeo no tráfego pago.</p></div>
@@ -532,40 +524,43 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- 11b · ESTRUTURA DE CAMPANHA -->
 <section class="s alt" id="s11b">
- <span class="eb a">ESTRUTURA DE CAMPANHA · META ADS</span>
- <h2 class="a" style="--i:1;font-size:170px">Testar, validar <span class="g">e escalar.</span></h2>
+ <span class="eb a">ESTRATÉGIA DE AQUISIÇÃO · TRÁFEGO PAGO</span>
+ <div class="row" style="align-items:center;gap:60px">
+  <h2 class="a" style="--i:1;font-size:160px">Testar, validar <span class="g">e escalar.</span></h2>
+  <div class="obj2 a" style="--i:2">Objetivo da campanha: <b>Vendas</b></div>
+ </div>
  <div class="camp">
-  <div class="card a" style="--i:2"><div class="ph3"><div class="num">1</div><small>TESTE</small></div><h3>ABO 1-1-3</h3>
+  <div class="card a" style="--i:3"><div class="ph3"><div class="num">1</div><small>TESTE</small></div><h3>ABO 1-1-3</h3>
    <div class="tree"><span>1 campanha</span><span>1 conjunto</span><span class="g3"><i>C1</i><i>C2</i><i>C3</i></span></div>
-   <ul><li>Roda por <b>48 horas</b> para gerar métricas</li><li>Sem venda? Descobrir se o problema é o <b>criativo</b>, a <b>LP</b> ou a <b>oferta</b></li></ul>
+   <ul><li>Orçamento <b>por conjunto</b></li><li><b>R$ 15 a R$ 30</b> por dia</li><li>Roda por <b>48 horas</b></li></ul>
   </div>
-  <div class="ar af" style="--i:3">→</div>
-  <div class="card a" style="--i:4"><div class="ph3"><div class="num">2</div><small>PRÉ-ESCALA</small></div><h3>Modelar o que vendeu</h3>
-   <div class="gate">Gatilho: venda + ROI com criativo vencedor</div>
-   <ul><li>Produzir <b>mais criativos</b></li><li>Modelar os <b>criativos vencedores</b>, que já venderam</li></ul>
+  <div class="ar af" style="--i:4">→</div>
+  <div class="card a" style="--i:5"><div class="ph3"><div class="num">2</div><small>PRÉ-ESCALA</small></div><h3>Análise em 48h</h3>
+   <div class="brn no"><small>NÃO VENDEU</small>Achar o gargalo: <b>criativo fraco</b> ou <b>LP fraca</b></div>
+   <div class="brn ok"><small>VENDEU</small>Fazer <b>mais criativos</b> modelando o vencedor, o que vendeu</div>
   </div>
-  <div class="ar af" style="--i:5">→</div>
-  <div class="card hi a" style="--i:6"><div class="ph3"><div class="num">3</div><small>ESCALA</small></div><h3>Escalar os vencedores</h3>
-   <div class="gate">Gatilho: mais de 5 criativos vencedores</div>
-   <ul><li>Campanha com meta de <b>custo por resultado</b></li><li>Aumentar o <b>orçamento diário</b></li><li>Orçamento por <b>horário vencedor</b> do público</li></ul>
+  <div class="ar af" style="--i:6">→</div>
+  <div class="card hi a" style="--i:7"><div class="ph3"><div class="num">3</div><small>ESCALA</small></div><h3>Campanhas 1-1-1</h3>
+   <div class="tree"><span>1 campanha</span><span>1 conjunto</span><span class="g3"><i>Vencedor</i></span></div>
+   <ul><li>Meta de <b>custo por resultado</b></li><li><b>Bid cap</b>: lance máximo</li><li>Públicos: <b>engajados</b> e <b>1% semelhantes</b> a clientes</li></ul>
   </div>
  </div>
 </section>
 
 <!-- 11d · ORÇAMENTO DE GESTÃO -->
 <section class="s alt" id="s11d">
- <span class="eb a">ORÇAMENTO DE GESTÃO · 1º MÊS</span>
+ <span class="eb a">ORÇAMENTO E GESTÃO FINANCEIRA</span>
  <h2 class="a" style="--i:1;font-size:160px">Investir pouco, <span class="g">escalar o que vende.</span></h2>
  <div class="bud">
-  <div class="card a" style="--i:2"><small>DIAS 1–2 · TESTE</small><b>R$ 100</b><p>R$ 50/dia no ABO 1-1-3</p><div class="bb"><i style="--w:4%"></i></div></div>
-  <div class="card a" style="--i:3"><small>DIAS 3–9 · PRÉ-ESCALA</small><b>R$ 350</b><p>R$ 50/dia nos criativos vencedores</p><div class="bb"><i style="--w:14%"></i></div></div>
-  <div class="card a" style="--i:4"><small>DIAS 10–30 · ESCALA</small><b>R$ 2.100</b><p>A partir de R$ 100/dia, subindo com o resultado</p><div class="bb"><i style="--w:82%"></i></div></div>
-  <div class="card hi a" style="--i:5"><small>TOTAL DO MÊS</small><b>R$ 2.550</b><p>Empata com <span class="wh" style="font-weight:600">32 vendas</span> do trimestral (R$ 79,90)</p><div class="bb"><i style="--w:100%"></i></div></div>
+  <div class="card a" style="--i:2"><small>VERBA DIÁRIA</small><b>R$ 15–30</b><p>Por conjunto, na campanha de teste ABO</p><div class="bb"><i style="--w:33%"></i></div></div>
+  <div class="card a" style="--i:3"><small>TESTE · 48 HORAS</small><b>R$ 30–60</b><p>Custo para validar os 3 criativos</p><div class="bb"><i style="--w:7%"></i></div></div>
+  <div class="card a" style="--i:4"><small>1º MÊS · 30 DIAS</small><b>R$ 450–900</b><p>Mantendo R$ 15 a R$ 30 por dia</p><div class="bb"><i style="--w:100%"></i></div></div>
+  <div class="card hi a" style="--i:5"><small>PONTO DE EQUILÍBRIO</small><b>6–12</b><p>Vendas do trimestral (R$ 79,90) pagam o mês de anúncio</p><div class="bb"><i style="--w:100%"></i></div></div>
  </div>
  <div class="rules">
-  <div class="a" style="--i:6"><b>Regra 1</b>Só aumenta a verba se o custo por venda ficar abaixo de R$ 79,90.</div>
-  <div class="a" style="--i:7"><b>Regra 2</b>Aumento de até 20% a cada 48 horas, nos horários que mais vendem.</div>
-  <div class="a" style="--i:8"><b>Regra 3</b>Criativo sem resultado em 48 horas é pausado.</div>
+  <div class="a" style="--i:6"><b>Regra 1</b>Custo por venda acima de R$ 79,90 não escala.</div>
+  <div class="a" style="--i:7"><b>Regra 2</b>Criativo sem venda em 48 horas é pausado.</div>
+  <div class="a" style="--i:8"><b>Regra 3</b>Na escala, o bid cap segura o custo por venda.</div>
  </div>
 </section>
 
