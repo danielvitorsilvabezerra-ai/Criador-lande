@@ -224,6 +224,31 @@ p{font-size:84px;line-height:1.3;color:var(--mt)}
 .brn.no{border:3px solid #ff6b6b66;background:#ff6b6b14}.brn.no small{color:var(--red)}
 .brn.ok{border:3px solid #0ad92788;background:#0ad9271a}.brn.ok small{color:var(--g)}
 .brn b{font-weight:600}
+/* ===== efeitos ===== */
+.s{isolation:isolate;transform:scale(1.035);transition:opacity .7s,visibility 0s .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.s.on{transform:none;transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.s:before{content:"";position:absolute;inset:-25%;z-index:-1;pointer-events:none;background:radial-gradient(900px 700px at 20% 30%,#0ad9271c,transparent 70%),radial-gradient(1000px 800px at 80% 70%,#19c31416,transparent 70%);animation:drift 18s ease-in-out infinite alternate}
+.s:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(#ffffff14 3px,transparent 3.5px);background-size:84px 84px;-webkit-mask-image:radial-gradient(1800px 1100px at 70% 20%,#000,transparent 75%);mask-image:radial-gradient(1800px 1100px at 70% 20%,#000,transparent 75%)}
+@keyframes drift{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(6%,-4%) rotate(8deg)}100%{transform:translate(-5%,5%) rotate(-6deg)}}
+@keyframes up{from{opacity:0;transform:translateY(90px) scale(.97);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+h2 .g,.quote .g,#s1 .tag .g,.big .g{background:linear-gradient(100deg,#0AD927 20%,#B6FFC2 45%,#0AD927 70%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 5s linear infinite}
+@keyframes shim{from{background-position:100% 0}to{background-position:-150% 0}}
+.card.hi,.obj2{position:relative;overflow:hidden}
+.card.hi:after,.obj2:after{content:"";position:absolute;top:-20%;bottom:-20%;width:40%;left:-60%;background:linear-gradient(100deg,transparent,#ffffff26,transparent);transform:skewX(-18deg);animation:sweep 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,55%{left:-60%}100%{left:130%}}
+.ilx{filter:drop-shadow(0 40px 80px #0ad92733)}
+.on .ilx{animation:fi 1.2s ease both,fl 7s ease-in-out 1.4s infinite;animation-delay:calc(var(--i,0)*.14s + .2s),1.6s}
+.ilt{position:absolute;right:230px;top:120px;filter:drop-shadow(0 40px 80px #0ad92733);opacity:0}
+.on .ilt{animation:fi 1.2s ease .5s both,fl 7s ease-in-out 1.8s infinite}
+.grid4 .card,.cm .card{display:flex;flex-direction:column}
+#s6 .grid4{margin-top:44px}#s6 .grid4 .card{padding:50px 52px}#s6 .cil{height:290px;padding-top:16px}#s6 .grid4 .card h3{font-size:88px}#s6 .grid4 .card p{font-size:62px}
+.cil{display:block;height:400px;max-width:100%;margin:auto auto 0;padding-top:30px;object-fit:contain;transition:transform .6s}
+.cm .cil{height:360px}
+.ch .card{display:flex;align-items:center;gap:50px}
+.ch .card>div{flex:1}
+.ch .card img{height:470px;flex:none}
+#fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:8;mix-blend-mode:screen}
+@media(prefers-reduced-motion:reduce){#fx{display:none}.s:before{animation:none}}
 /* final */
 .ch{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:100px}
 .ch .no{background:#16130d;border-color:#ffffff12}
@@ -246,7 +271,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 <!-- 1 · CAPA -->
 <section class="s" id="s1">
  <div class="orb" style="width:1400px;height:1400px;right:-200px;top:-300px"></div>
- <div class="kpi a" style="--i:5"><small>Lucro do mês</small><b>R$ 3.430</b><div class="bars"><i style="height:35%;--i:1"></i><i style="height:60%;--i:2"></i><i style="height:45%;--i:3"></i><i style="height:80%;--i:4"></i><i style="height:55%;--i:5"></i><i style="height:95%;--i:6"></i></div></div>
+ <div class="kpi a" style="--i:5"><small>Lucro do mês</small><b data-count="3430" data-pre="R$ ">R$ 3.430</b><div class="bars"><i style="height:35%;--i:1"></i><i style="height:60%;--i:2"></i><i style="height:45%;--i:3"></i><i style="height:80%;--i:4"></i><i style="height:55%;--i:5"></i><i style="height:95%;--i:6"></i></div></div>
  <span class="eb a">TCC</span>
  <h1 class="a" style="--i:1">ANOTEI<i></i></h1>
  <div class="tag a" style="--i:2">Do caderno <span class="g">para o controle.</span></div>
@@ -296,6 +321,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
     <div class="a" style="--i:6">Economizar tempo e decidir com segurança.</div>
    </div>
    <p class="obj a" style="--i:7"><b>O que trava:</b> achar que o app é difícil, caro ou desnecessário.</p>
+   <img class="ilx af" style="--i:6;height:520px;margin-top:40px;align-self:flex-start" src="v/il-persona.svg" alt="">
   </div>
  </div>
 </section>
@@ -326,10 +352,10 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
  <span class="eb a">PROPOSTA DE VALOR · O QUE O USUÁRIO RECEBE</span>
  <h2 class="a" style="--i:1;font-size:170px">O que muda no seu negócio <span class="g">depois do ANOTEI.</span></h2>
  <div class="grid4">
-  <div class="card a" style="--i:2"><div class="num">1</div><h3>Saber para onde o dinheiro vai</h3><p>Cada entrada e saída registrada, com o saldo à vista.</p></div>
-  <div class="card a" style="--i:3"><div class="num">2</div><h3>Enxergar gargalos e perdas</h3><p>Descubra onde o dinheiro escapa para poder agir.</p></div>
-  <div class="card a" style="--i:4"><div class="num">3</div><h3>Mais clareza para sobrar</h3><p>Decida com números, não no chute.</p></div>
-  <div class="card a" style="--i:5"><div class="num">4</div><h3>Estoque organizado</h3><p>Veja o que tem, o que está acabando e o que repor.</p></div>
+  <div class="card a" style="--i:2"><div class="num">1</div><h3>Saber para onde o dinheiro vai</h3><p>Cada entrada e saída registrada, com o saldo à vista.</p><img class="cil" src="v/il-dinheiro.svg" alt=""></div>
+  <div class="card a" style="--i:3"><div class="num">2</div><h3>Enxergar gargalos e perdas</h3><p>Descubra onde o dinheiro escapa para poder agir.</p><img class="cil" src="v/il-perdas.svg" alt=""></div>
+  <div class="card a" style="--i:4"><div class="num">3</div><h3>Mais clareza para sobrar</h3><p>Decida com números, não no chute.</p><img class="cil" src="v/il-lucro.svg" alt=""></div>
+  <div class="card a" style="--i:5"><div class="num">4</div><h3>Estoque organizado</h3><p>Veja o que tem, o que está acabando e o que repor.</p><img class="cil" src="v/il-estoque.svg" alt=""></div>
  </div>
 </section>
 
@@ -366,9 +392,9 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
   <span class="a" style="--i:6">Instagram</span><span class="a" style="--i:7">Facebook</span><span class="a" style="--i:8">TikTok</span>
  </div>
  <div class="cm">
-  <div class="card a" style="--i:9"><h3>Educativo</h3><p>Finanças na prática e dinheiro pessoal x da empresa.</p></div>
-  <div class="card a" style="--i:10"><h3>Identificação</h3><p>Quem anota tudo no caderno e o susto de não saber o lucro.</p></div>
-  <div class="card a" style="--i:11"><h3>Produto</h3><p>Demonstrações e tutoriais rápidos do app.</p></div>
+  <div class="card a" style="--i:9"><h3>Educativo</h3><p>Finanças na prática e dinheiro pessoal x da empresa.</p><img class="cil" src="v/il-educa.svg" alt=""></div>
+  <div class="card a" style="--i:10"><h3>Identificação</h3><p>Quem anota tudo no caderno e o susto de não saber o lucro.</p><img class="cil" src="v/il-caderno.svg" alt=""></div>
+  <div class="card a" style="--i:11"><h3>Produto</h3><p>Demonstrações e tutoriais rápidos do app.</p><img class="cil" src="v/il-produto.svg" alt=""></div>
  </div>
 </section>
 
@@ -510,6 +536,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- 11b · ESTRUTURA DE CAMPANHA -->
 <section class="s alt" id="s11b">
+ <img class="ilt af" style="--i:3;height:380px" src="v/il-alvo.svg" alt="">
  <span class="eb a">ESTRATÉGIA DE AQUISIÇÃO · TRÁFEGO PAGO</span>
  <div class="row" style="align-items:center;gap:60px">
   <h2 class="a" style="--i:1;font-size:160px">Testar, validar <span class="g">e escalar.</span></h2>
@@ -535,6 +562,7 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
 
 <!-- 11d · ORÇAMENTO DE GESTÃO -->
 <section class="s alt" id="s11d">
+ <img class="ilt af" style="--i:3;height:400px" src="v/il-cofre.svg" alt="">
  <span class="eb a">ORÇAMENTO E GESTÃO FINANCEIRA</span>
  <h2 class="a" style="--i:1;font-size:160px">Investir pouco, <span class="g">escalar o que vende.</span></h2>
  <div class="bud">
@@ -555,12 +583,13 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
  <div class="orb" style="width:1600px;height:1600px;left:50%;bottom:-1100px;margin-left:-800px"></div>
  <h2 class="a" style="font-size:300px;text-align:center">Você tem <span class="g">duas escolhas.</span></h2>
  <div class="ch">
-  <div class="card no a" style="--i:1"><h3>Continuar como antes</h3><p>Caderno, papéis e anotações perdidas. Sem saber se está no lucro ou no prejuízo.</p></div>
-  <div class="card hi a" style="--i:2"><h3>Mudar com o ANOTEI</h3><p>Finanças, estoque, clientes e caderno em um só app. Clareza para decidir com números.</p></div>
+  <div class="card no a" style="--i:1"><div><h3>Continuar como antes</h3><p>Caderno, papéis e anotações perdidas. Sem saber se está no lucro ou no prejuízo.</p></div><img src="v/il-duvida.svg" alt=""></div>
+  <div class="card hi a" style="--i:2"><div><h3>Mudar com o ANOTEI</h3><p>Finanças, estoque, clientes e caderno em um só app. Clareza para decidir com números.</p></div><img src="v/il-vitoria.svg" alt=""></div>
  </div>
  <div class="a" style="--i:3;text-align:center;margin-top:90px;font-family:'Space Grotesk',Inter,sans-serif;font-size:150px;font-weight:700;letter-spacing:-.03em">Obrigado! <span class="g">Perguntas?</span></div>
 </section>
 
+<canvas id="fx" width="2048" height="864"></canvas>
 <div id="logo">ANOTEI<i></i></div><div id="cnt"></div><div id="bar"></div>
 </div>
 
@@ -597,6 +626,10 @@ document.getElementById('nx').onclick=next;document.getElementById('pv').onclick
 var x0=null;addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
 addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>60)d<0?next():prev();x0=null},{passive:true});
 setTimeout(function(){hint.classList.add('h')},6000);
+function fmt(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+function countUp(s){[].slice.call(s.querySelectorAll('[data-count]')).forEach(function(el){var to=+el.getAttribute('data-count'),pre=el.getAttribute('data-pre')||'',t0=null,d=1600;el.textContent=pre+'0';setTimeout(function(){function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=pre+fmt(to*e);if(p<1)requestAnimationFrame(st)}requestAnimationFrame(st)},900)})}
+var _go=go;go=function(n){_go(n);countUp(sl[cur])};
+(function(){var c=document.getElementById('fx');if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var x=c.getContext('2d'),W=c.width,H=c.height,P=[];for(var i=0;i<70;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.2+.6,v:Math.random()*.35+.08,a:Math.random()*6.28,s:Math.random()*.02+.005});function f(){x.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.y-=p.v;p.a+=p.s;p.x+=Math.sin(p.a)*.25;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}var o=.25+.35*Math.sin(p.a*2);x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle='rgba(10,217,39,'+Math.max(.05,o)+')';x.shadowColor='#0AD927';x.shadowBlur=8;x.fill()}requestAnimationFrame(f)}f()})();
 var h=parseInt((location.hash||'').slice(1),10);go(isNaN(h)?0:h-1);
 })();
 </script>
