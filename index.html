@@ -180,6 +180,43 @@ p{font-size:84px;line-height:1.3;color:var(--mt)}
 .on .cb i{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*.15s + .9s)}
 .cx{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:20px}.cx span{text-align:center;font-size:54px;font-weight:700;color:var(--wh)}
 .ch3 .cap{font-size:46px;margin-top:8px;text-align:center}
+/* copy */
+.cp{display:grid;grid-template-columns:1.55fr 1fr;gap:90px;margin-top:50px;align-items:start}
+.cpl{display:grid;gap:16px}
+.cpl>div{border-left:10px solid var(--g);background:#ffffff0a;border-radius:0 40px 40px 0;padding:18px 48px}
+.cpl small{display:block;font-size:42px;letter-spacing:.14em;font-weight:700;color:var(--g)}
+.cpl q{quotes:none;display:block;font-size:56px;font-weight:600;line-height:1.2;margin-top:6px}
+.cpl q.btnq{display:inline-block;background:var(--g);color:#031a08;border-radius:24px;padding:10px 40px;margin-top:12px}
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin-top:30px}
+.flow span{border:3px solid var(--ln);background:#ffffff0c;border-radius:40px;padding:14px 50px;font-size:60px;font-weight:700;text-align:center}
+.flow span.hi{background:var(--g);color:#031a08;border-color:var(--g)}
+.flow i{font-style:normal;text-align:center;color:var(--g);font-size:48px;line-height:1}
+/* design */
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:26px 40px;margin-top:56px}
+.sw div{display:grid;grid-template-columns:110px 1fr;grid-template-rows:auto auto;column-gap:34px;align-items:center}
+.sw i{grid-row:span 2;width:110px;height:110px;border-radius:30px;border:3px solid transparent}
+.sw b{font-family:"Space Grotesk",Inter,sans-serif;font-size:56px}
+.sw span{font-size:46px;color:var(--mt)}
+.dp{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:50px}
+.dp div{border:3px solid var(--ln);background:#ffffff0a;border-radius:44px;padding:30px 40px;font-size:46px;line-height:1.25;color:var(--mt)}
+.dp b{display:block;color:var(--wh);font-size:56px;margin-bottom:6px}
+.dz{position:relative;width:2050px;height:1380px;flex:none}
+.dz .bw{position:absolute;left:0;top:60px;width:1800px}
+.dz .bw img{display:block;width:100%;aspect-ratio:1440/900;object-fit:cover}
+.mph{position:absolute;right:0;bottom:0;width:470px;height:960px;border-radius:80px;padding:18px;background:linear-gradient(145deg,#4b524e,#111 40%,#2b302d);box-shadow:0 80px 200px -40px #000,0 0 0 3px #ffffff26 inset,0 0 240px -60px #0ad927aa;animation:fl 8s ease-in-out infinite}
+.mph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:64px}
+/* orçamento */
+.bud{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;margin-top:60px}
+.bud .card{padding:52px 56px;display:flex;flex-direction:column}
+.bud small{font-size:46px;letter-spacing:.12em;font-weight:700;color:var(--g)}
+.bud b{font-family:"Space Grotesk",Inter,sans-serif;font-size:150px;line-height:1.1;letter-spacing:-.03em;margin-top:14px}
+.bud .card p{font-size:52px;line-height:1.25;margin-bottom:34px}
+.bb{height:24px;border-radius:20px;background:#ffffff14;margin-top:auto;overflow:hidden}
+.bb i{display:block;height:100%;width:var(--w);min-width:24px;border-radius:20px;background:linear-gradient(90deg,#0ad92755,var(--g));transform-origin:left}
+.on .bb i{animation:gx 1.4s cubic-bezier(.2,.7,.2,1) both;animation-delay:1s}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:56px}
+.rules div{font-size:52px;line-height:1.25;padding-left:44px;border-left:12px solid var(--g);color:var(--wh)}
+.rules b{display:block;color:var(--g);font-size:46px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
 /* final */
 .ch{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:100px}
 .ch .no{background:#16130d;border-color:#ffffff12}
@@ -398,6 +435,54 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
  </div>
 </section>
 
+<!-- 7b · COPY DA LP -->
+<section class="s alt" id="s7b">
+ <span class="eb a">COPY DA LANDING PAGE</span>
+ <h2 class="a" style="--i:1;font-size:140px">Cada frase tem <span class="g">uma função.</span></h2>
+ <div class="cp">
+  <div class="cpl">
+   <div class="a" style="--i:2"><small>HEADLINE · A DOR</small><q>Chega de controlar seu negócio no caderno.</q></div>
+   <div class="a" style="--i:3"><small>SUBTÍTULO · A PROMESSA</small><q>Organize finanças, estoque, clientes e anotações em um só app e descubra quanto o seu negócio lucra.</q></div>
+   <div class="a" style="--i:4"><small>CTA · SEM RISCO</small><q class="btnq">Começar gratuitamente →</q></div>
+   <div class="a" style="--i:5"><small>QUEBRA DE OBJEÇÃO · PREÇO</small><q>Grátis para começar · Premium a partir de R$ 20,58/mês.</q></div>
+   <div class="a" style="--i:6"><small>FECHAMENTO · DECISÃO</small><q>Você tem duas escolhas. <span class="g">Quero mudar agora.</span></q></div>
+  </div>
+  <div class="cpr">
+   <div class="mt a" style="--i:3;font-size:52px;letter-spacing:.14em;font-weight:700">A LÓGICA DA PÁGINA</div>
+   <div class="flow">
+    <span class="a" style="--i:4">Dor</span><i class="af" style="--i:5">↓</i><span class="a" style="--i:5">Solução</span><i class="af" style="--i:6">↓</i><span class="a" style="--i:6">Prova social</span><i class="af" style="--i:7">↓</i><span class="a" style="--i:7">Oferta</span><i class="af" style="--i:8">↓</i><span class="a hi" style="--i:8">Ação</span>
+   </div>
+   <p class="a" style="--i:9;font-size:48px;margin-top:30px">Linguagem do cliente: <b class="wh" style="font-weight:600">caderno, WhatsApp, "não sei se dá lucro".</b></p>
+  </div>
+ </div>
+</section>
+
+<!-- 7c · DESIGN DA LP -->
+<section class="s" id="s7c">
+ <div class="row" style="justify-content:space-between;align-items:center;gap:90px">
+  <div class="col" style="width:1500px;flex:none">
+   <span class="eb a">DESIGN DA LANDING PAGE</span>
+   <h2 class="a" style="--i:1;font-size:160px">Visual que passa <span class="g">confiança.</span></h2>
+   <div class="sw">
+    <div class="a" style="--i:2"><i style="background:#0AD927"></i><b>#0AD927</b><span>Verde: dinheiro e ação</span></div>
+    <div class="a" style="--i:3"><i style="background:#050505;border-color:#ffffff40"></i><b>#050505</b><span>Preto: fundo premium</span></div>
+    <div class="a" style="--i:4"><i style="background:#0D1110;border-color:#ffffff40"></i><b>#0D1110</b><span>Grafite: cartões</span></div>
+    <div class="a" style="--i:5"><i style="background:#F6F8F6"></i><b>#F6F8F6</b><span>Branco: leitura</span></div>
+   </div>
+   <div class="dp">
+    <div class="a" style="--i:6"><b>Mobile first</b>O público chega pelo anúncio, no celular.</div>
+    <div class="a" style="--i:7"><b>Um botão verde</b>A ação principal sempre em destaque.</div>
+    <div class="a" style="--i:8"><b>Mostra o app</b>Telas do produto no lugar de foto genérica.</div>
+    <div class="a" style="--i:9"><b>Títulos grandes</b>Entende a página em 3 segundos.</div>
+   </div>
+  </div>
+  <div class="dz af" style="--i:3">
+   <div class="bw"><div class="bar"><i></i><i></i><i></i><span>anotei.app</span></div><img src="v/lp_desk.jpg" alt="LP do ANOTEI no computador"></div>
+   <div class="mph"><img src="v/lp_mob.jpg" alt="LP do ANOTEI no celular"></div>
+  </div>
+ </div>
+</section>
+
 <!-- 8 · DEPOIMENTO -->
 <section class="s alt" id="s8">
  <div class="row" style="justify-content:space-between">
@@ -490,6 +575,23 @@ body:hover .nv{opacity:.55}.nv:hover{opacity:1!important;border-color:var(--g)}
    <div class="cx"><span>50</span><span>100</span><span>250</span><span>500</span></div>
    <p class="cap">Assinantes ativos → receita por mês</p>
   </div>
+ </div>
+</section>
+
+<!-- 11d · ORÇAMENTO DE GESTÃO -->
+<section class="s alt" id="s11d">
+ <span class="eb a">ORÇAMENTO DE GESTÃO · 1º MÊS</span>
+ <h2 class="a" style="--i:1;font-size:160px">Investir pouco, <span class="g">escalar o que vende.</span></h2>
+ <div class="bud">
+  <div class="card a" style="--i:2"><small>DIAS 1–2 · TESTE</small><b>R$ 100</b><p>R$ 50/dia no ABO 1-1-3</p><div class="bb"><i style="--w:4%"></i></div></div>
+  <div class="card a" style="--i:3"><small>DIAS 3–9 · PRÉ-ESCALA</small><b>R$ 350</b><p>R$ 50/dia nos criativos vencedores</p><div class="bb"><i style="--w:14%"></i></div></div>
+  <div class="card a" style="--i:4"><small>DIAS 10–30 · ESCALA</small><b>R$ 2.100</b><p>A partir de R$ 100/dia, subindo com o resultado</p><div class="bb"><i style="--w:82%"></i></div></div>
+  <div class="card hi a" style="--i:5"><small>TOTAL DO MÊS</small><b>R$ 2.550</b><p>Empata com <span class="wh" style="font-weight:600">32 vendas</span> do trimestral (R$ 79,90)</p><div class="bb"><i style="--w:100%"></i></div></div>
+ </div>
+ <div class="rules">
+  <div class="a" style="--i:6"><b>Regra 1</b>Só aumenta a verba se o custo por venda ficar abaixo de R$ 79,90.</div>
+  <div class="a" style="--i:7"><b>Regra 2</b>Aumento de até 20% a cada 48 horas, nos horários que mais vendem.</div>
+  <div class="a" style="--i:8"><b>Regra 3</b>Criativo sem resultado em 48 horas é pausado.</div>
  </div>
 </section>
 
