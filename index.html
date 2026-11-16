@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ANOTEI — Do caderno para o controle.</title>
+<meta name="description" content="Organize finanças, estoque, clientes e anotações do seu negócio em um só app. Comece grátis.">
+<style>
+:root{--g:#0AD927;--g2:#19C314;--gd:#063B18;--bk:#050505;--gr:#0D1110;--wh:#fff;--lt:#F4F7F5;--mt:#9AA49D;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bk);color:var(--wh);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{padding:0}
+.w{max-width:1160px;margin:0 auto;padding:0 22px}
+section{position:relative;padding:110px 0}
+h1,h2{letter-spacing:-.035em;line-height:1.05;font-weight:800}
+h1{font-size:clamp(40px,6vw,76px)}h2{font-size:clamp(32px,4.6vw,58px)}
+.g{color:var(--g)}.mt{color:var(--mt)}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.14em;font-weight:700;color:var(--g);border:1px solid #0ad92755;background:#0ad9270f;padding:7px 14px;border-radius:99px;margin-bottom:22px}
+.lt .eyebrow{color:#0a8c1d;border-color:#0a8c1d55;background:#0a8c1d12}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border-radius:14px;font-weight:700;border:1px solid transparent;cursor:pointer;transition:.25s;font-size:16px;font-family:inherit}
+.btn.p{background:var(--g);color:#031a08;box-shadow:0 0 0 0 #0ad92755}
+.btn.p:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px #0ad927aa}
+.btn.s{border-color:#ffffff30;color:#fff;background:#ffffff08}.btn.s:hover{border-color:var(--g);color:var(--g)}
+.rv{opacity:0;transform:translateY(34px);transition:1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}.rv.in{opacity:1;transform:none}
+.stage.rv.in{transition:opacity 1s,transform .3s ease-out}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0}.skip:focus{left:10px;top:10px;z-index:99;background:var(--g);color:#031a08;padding:10px 14px;border-radius:8px;font-weight:700}
+.line:after{content:"";position:absolute;left:50%;bottom:0;width:min(720px,80%);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,var(--g),transparent);box-shadow:0 0 40px 6px #0ad92755;opacity:.7;pointer-events:none;z-index:3}
+/* seções claras com transição suave */
+.lt{background:var(--lt);color:#0b120d}
+.lt p{color:#5c675f}
+.lt .w{position:relative;z-index:2}
+.lt-top{padding-top:clamp(130px,16vw,170px)}
+.lt-top:before{content:"";position:absolute;left:0;right:0;top:0;height:min(170px,22vw);min-height:110px;background:linear-gradient(180deg,#050505 0%,#050505cc 25%,#05050560 60%,#f4f7f500 100%);pointer-events:none;z-index:1}
+.lt-bot{padding-bottom:clamp(130px,16vw,170px)}
+.lt-bot:after{content:"";position:absolute;left:0;right:0;bottom:0;height:min(170px,22vw);min-height:110px;background:linear-gradient(180deg,#f4f7f500 0%,#05050560 40%,#050505cc 75%,#050505 100%);pointer-events:none;z-index:1}
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:.3s;border-bottom:1px solid transparent}
+header.sc{background:#050505cc;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:#ffffff12}
+.hb{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:900;letter-spacing:.06em;font-size:21px;display:flex;align-items:center;gap:8px}
+.logo i{width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 14px var(--g)}
+nav{display:flex;gap:30px;align-items:center;font-size:14px;color:#ffffffb8}nav a:hover{color:var(--g)}
+.burger{display:none;background:none;border:0;width:46px;height:46px;cursor:pointer}
+.burger b{display:block;width:24px;height:2px;background:#fff;margin:6px auto;transition:.3s}
+/* 1 · oferta */
+#hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;background:radial-gradient(60% 60% at 80% 30%,#0ad92722,transparent 70%),radial-gradient(40% 40% at 10% 90%,#063b1888,transparent),var(--bk);overflow:hidden}
+#hero .w{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+#hero p.sub{font-size:20px;color:#ffffffb0;margin:24px 0 32px;max-width:540px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}.small{font-size:13px;color:var(--mt);margin-top:16px}
+#glow{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:plus-lighter}
+#parts{position:absolute;inset:0;z-index:0;pointer-events:none}
+.stage{position:relative;height:640px;perspective:1200px}
+.stage .ph{position:absolute}
+.stage .a{left:50%;top:0;transform:translateX(-50%) rotateY(-12deg) rotateX(4deg);animation:fl 6s ease-in-out infinite;z-index:2}
+.stage .b{left:2%;top:90px;transform:scale(.88) rotateY(18deg);opacity:.75;filter:blur(.4px);animation:fl 7s ease-in-out infinite reverse}
+@keyframes fl{50%{translate:0 -16px}}
+/* celular */
+.ph{width:280px;height:580px;border-radius:44px;padding:10px;background:linear-gradient(145deg,#4b524e,#111 40%,#2b302d);box-shadow:0 40px 90px -20px #000,0 0 0 1px #ffffff22 inset,0 0 70px -20px #0ad92766;position:relative}
+.ph:before{content:"";position:absolute;top:18px;left:50%;width:84px;height:22px;background:#000;border-radius:20px;transform:translateX(-50%);z-index:5}
+.ph:after{content:"";position:absolute;inset:0;border-radius:44px;background:linear-gradient(115deg,#fff3 0%,transparent 28%,transparent 70%,#fff1 100%);pointer-events:none;z-index:6}
+.scr{height:100%;border-radius:35px;background:var(--gr);overflow:hidden;padding:48px 16px 16px;font-size:12px;color:#fff}
+.scr h4{font-size:17px;margin-bottom:12px}
+.scr.sw{animation:sw .5s both}@keyframes sw{from{opacity:0;transform:translateY(12px)}}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.kp div{background:#ffffff0b;border:1px solid #ffffff10;border-radius:14px;padding:10px}
+.kp small{color:var(--mt);display:block;font-size:10px}.kp b{font-size:14px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff10;gap:10px}
+.row em{font-style:normal;color:var(--g);font-weight:700;white-space:nowrap}.row em.r{color:#ff6b6b}
+.tag{font-size:10px;padding:3px 8px;border-radius:99px;background:#ff6b6b22;color:#ff8d8d;font-weight:700}
+.chart{height:90px;display:flex;align-items:flex-end;gap:6px;margin:6px 0}
+.chart i{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(var(--g),#0ad92722);height:0;transition:1.4s cubic-bezier(.2,.7,.2,1)}
+.pill{border-radius:99px;font-size:11px;padding:3px 9px;background:#0ad92722;color:var(--g)}
+.glass{position:relative;overflow:hidden}
+.glass:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,#ffffff22 50%,transparent 60%);transform:translateX(-120%);animation:sh 5s infinite;z-index:7;pointer-events:none;border-radius:inherit}
+@keyframes sh{40%,100%{transform:translateX(120%)}}
+/* 2 · dor latente */
+#dor{padding-top:30px}
+#dor .w{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.desk{position:relative;height:460px}
+.nb{position:absolute;left:6%;top:30px;width:290px;height:390px;background:#fbf6e6;border-radius:6px 18px 18px 6px;box-shadow:0 30px 60px -20px #0004,-10px 0 0 #1a1a1a inset;transform:rotate(-5deg);padding:34px 26px 20px 42px;background-image:repeating-linear-gradient(transparent 0 29px,#9cc4e8 29px 30px);font:italic 17px/30px "Segoe Print","Bradley Hand",cursive;color:#2a3a63}
+.nb s{color:#b33;text-decoration-thickness:2px}
+.it{position:absolute;border-radius:16px;box-shadow:0 20px 40px -15px #0005;display:flex;align-items:center;justify-content:center;font-weight:700;animation:fl 7s ease-in-out infinite}
+.calc{right:6%;top:20px;width:110px;height:150px;background:#222;color:#0ad927;transform:rotate(8deg);font-size:20px}
+.wa{right:0;top:200px;width:170px;height:70px;background:#25d366;color:#fff;transform:rotate(-4deg);font-size:13px;animation-delay:-2s}
+.pp{right:16%;bottom:10px;width:130px;height:90px;background:#fff;color:#555;transform:rotate(12deg);font-size:12px;border:1px solid #ddd;animation-delay:-4s}
+.pen{left:48%;bottom:40px;width:150px;height:10px;background:linear-gradient(90deg,#1a1a1a,#1a1a1a 85%,var(--g));border-radius:8px;transform:rotate(-24deg);box-shadow:0 8px 14px #0004}
+.pains{list-style:none;display:grid;gap:12px;margin:26px 0}
+.pains li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #dfe6e1;border-radius:16px;padding:14px 16px;font-weight:600;box-shadow:0 8px 20px -12px #0002}
+.pains li:before{content:"✕";flex:none;width:24px;height:24px;border-radius:50%;background:#ff6b6b22;color:#d33;display:grid;place-items:center;font-size:13px;font-weight:800}
+/* 3 · transição */
+#solucao{background:radial-gradient(60% 45% at 50% 72%,#0ad92722,transparent),var(--bk);text-align:center;overflow:hidden}
+.morph{position:relative;height:620px;margin:50px auto 60px;width:300px}
+.morph .nb{left:0;top:40px;width:260px;height:340px;transition:.2s linear;font-size:15px}
+.morph .ph{position:absolute;left:10px;top:0;transform-origin:50% 100%}
+.pairs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left;margin-top:30px}
+.pairs div{padding:18px 20px;border-radius:18px;border:1px solid #ffffff14;background:linear-gradient(160deg,#ffffff0a,transparent);display:flex;justify-content:space-between;align-items:center;gap:10px;transition:.3s}
+.pairs div:hover{border-color:var(--g);transform:translateY(-3px)}
+.pairs span{color:var(--mt)}.pairs b{color:var(--g)}
+.big{font-size:clamp(26px,4.4vw,48px);font-weight:900;letter-spacing:-.03em;margin-top:44px;line-height:1.1}
+/* 4 · o que recebe */
+#recebe{background:linear-gradient(180deg,var(--bk),var(--gr));text-align:center}
+.rg{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:960px;margin:48px auto 0;text-align:left}
+.bc{padding:24px;border-radius:24px;border:1px solid #ffffff16;background:linear-gradient(165deg,#ffffff0b,transparent);transition:border-color .3s,transform .3s}
+.bc:hover{border-color:#0ad92788;transform:translateY(-4px)}
+.bc .mv{height:198px;border-radius:16px;background:var(--gr);border:1px solid #ffffff10;padding:14px;font-size:13px;margin-bottom:20px;overflow:hidden}
+.bc .mv .chart{height:110px}.bc h3{font-size:21px;margin-bottom:6px;line-height:1.2}.bc p{color:var(--mt);font-size:15px}
+/* 5 · entregável */
+#produto{background:radial-gradient(55% 380px at 50% 0,#0ad9271f,transparent 75%),var(--gr);text-align:center}
+.show{display:grid;grid-template-columns:1fr auto;gap:70px;align-items:center;margin:50px auto 0;max-width:960px;text-align:left}
+.tabs{display:grid;gap:12px}
+.tab{position:relative;text-align:left;background:#ffffff08;border:1px solid #ffffff14;color:#fff;border-radius:18px;padding:18px 22px;cursor:pointer;font:inherit;overflow:hidden;transition:.3s}
+.tab b{display:block;font-size:19px}.tab small{display:block;color:var(--mt);font-size:14px;margin-top:4px}
+.tab:hover{border-color:#0ad92788}
+.tab[aria-selected=true]{border-color:var(--g);background:linear-gradient(160deg,#0ad9271f,#ffffff06)}
+.tab:after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--g)}
+.tab[aria-selected=true]:after{animation:prog 4.5s linear forwards}
+.show.static .tab[aria-selected=true]:after{animation:none;width:100%}
+@keyframes prog{to{width:100%}}
+#tabDesc{display:none;color:var(--mt);margin-top:18px;text-align:center}
+.show .ph{animation:fl 6s ease-in-out infinite;margin:0 auto}
+/* 6 · identificação */
+#para-quem .w{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.ck{list-style:none;display:grid;gap:10px;margin:22px 0;font-weight:600;font-size:17px}
+.ck li{display:flex;gap:12px;align-items:flex-start}.ck li:before{content:"✓";flex:none;color:#0a9a1e;font-weight:900}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.chips span{background:#fff;border:1px solid #dfe6e1;border-radius:99px;padding:9px 16px;font-weight:700;font-size:14px;box-shadow:0 6px 16px -8px #0002;transition:.3s}
+.chips span:hover{transform:translateY(-3px);border-color:var(--g)}
+.vcol{text-align:center}
+.vcol h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;line-height:1.15;color:#0b120d}
+.vp{width:min(380px,100%);margin:22px auto 0;padding:8px;border-radius:30px;border:1px solid #0ad92740;background:linear-gradient(160deg,#0ad9271c,#063b1844 40%,#0d1110);box-shadow:0 40px 90px -30px #000,0 0 70px -25px #0ad92788}
+.vp video{display:block;width:100%;aspect-ratio:3/4;border-radius:23px;background:#000;object-fit:contain}
+/* 7 · recapitulação, valor e acesso */
+#plano{background:linear-gradient(180deg,var(--bk) 0%,var(--gr) 22%,var(--gr) 78%,var(--bk) 100%);text-align:center}
+.rcp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:44px 0 70px;text-align:left}
+.rcp div{padding:20px 22px;border-radius:18px;border:1px solid #ffffff14;background:linear-gradient(160deg,#ffffff0a,transparent);transition:.3s}
+.rcp div:hover{border-color:var(--g);transform:translateY(-3px)}
+.rcp b{display:block;font-size:17px;margin-bottom:2px}.rcp b:before{content:"✓ ";color:var(--g)}
+.rcp span{color:var(--mt);font-size:14px}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);max-width:880px;margin:30px auto 0;gap:20px;align-items:stretch;text-align:left}
+.pc{border:1px solid #ffffff16;border-radius:26px;padding:34px 28px;background:linear-gradient(170deg,#ffffff08,transparent);display:flex;flex-direction:column;position:relative}
+.pc.hi{border-color:var(--g);background:linear-gradient(170deg,#0ad92722,#050505 70%);transform:scale(1.04);box-shadow:0 0 80px -20px #0ad92799}
+.pc h3{font-size:14px;letter-spacing:.14em;color:var(--g)}.pc .pr{font-size:36px;font-weight:900;margin:10px 0 4px;white-space:nowrap}.pc .pr small{display:block;font-size:14px;color:var(--mt);font-weight:500;margin-top:2px}
+.pc ul{list-style:none;margin:22px 0;display:grid;align-content:start;gap:8px;font-size:14px;color:#ffffffc8;flex:1}.pc li:before{content:"✓ ";color:var(--g)}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:14px 0 6px}.sg button{min-height:54px;background:#ffffff0a;border:1px solid #ffffff1c;color:#fff;border-radius:12px;cursor:pointer;padding:6px 4px;font:inherit;font-size:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:.25s}.sg small{font-size:9.5px;color:var(--g);line-height:1.15;text-align:center}.sg button[aria-pressed=true]{background:#0ad92722;border-color:var(--g)}
+.acc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px auto 0;max-width:900px;counter-reset:s;text-align:left}
+.acc div{background:#ffffff08;border:1px solid #ffffff14;border-radius:20px;padding:22px}
+.acc div:before{counter-increment:s;content:counter(s);width:34px;height:34px;border-radius:50%;background:var(--g);color:#031a08;font-weight:900;display:grid;place-items:center;margin-bottom:12px}
+.acc b{display:block;margin-bottom:4px}.acc span{color:var(--mt);font-size:14px}
+/* 8 · escolha */
+#escolha{text-align:center;overflow:hidden;background:radial-gradient(55% 55% at 50% 100%,#0ad92744,transparent),var(--bk);padding:130px 0 140px}
+#escolha:before{content:"";position:absolute;left:0;right:0;top:0;height:300px;background:radial-gradient(55% 100% at 50% 0,#0ad92726,transparent 75%);pointer-events:none}
+#escolha>.ph{position:absolute;left:50%;bottom:-430px;transform:translateX(-50%) scale(1.5);opacity:.1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 40%);mask-image:linear-gradient(180deg,transparent 0,#000 40%)}
+#escolha .w{position:relative;z-index:2}
+.ch{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:960px;margin:50px auto 0;text-align:left}
+.ch>div{border-radius:26px;padding:34px 30px;display:flex;flex-direction:column}
+.ch h3{font-size:22px;margin-bottom:16px;line-height:1.2}
+.ch ul{list-style:none;display:grid;gap:10px;margin-bottom:26px;flex:1}
+.ch .no{background:#16130d;color:#d8cfae;border:1px solid #ffffff10}.ch .no li:before{content:"✕ ";color:#c55}
+.ch .yes{background:linear-gradient(160deg,#0ad92730,#063b18 40%,#050505);border:1px solid var(--g);box-shadow:0 0 90px -20px #0ad927aa}.ch .yes li:before{content:"✓ ";color:var(--g)}
+.tagl{margin-top:34px;font-weight:700;letter-spacing:.04em}
+footer{padding:50px 0 40px;border-top:1px solid #ffffff12;background:var(--bk)}
+footer .w{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer nav{flex-wrap:wrap;gap:18px 24px;position:static;transform:none;visibility:visible;opacity:1;flex-direction:row;background:none;padding:0;border:0;font-size:14px;backdrop-filter:none}
+/* responsivo */
+@media(max-width:1180px){.pc.hi{transform:none}}
+@media(max-width:960px){
+ section{padding:80px 0}
+ #hero .w,#dor .w,#para-quem .w{grid-template-columns:1fr}
+ .stage{height:600px}.stage .b,.it.wa,.it.pp{display:none}
+ .pairs,.rcp{grid-template-columns:1fr 1fr}
+ .show{grid-template-columns:1fr;gap:34px;justify-items:center}
+ .tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;order:2}
+ .tab{padding:12px 18px;border-radius:99px}.tab small{display:none}.tab b{font-size:15px}
+ #tabDesc{display:block;order:3}
+ nav:not(footer nav){position:fixed;inset:68px 0 auto 0;flex-direction:column;background:#050505f2;backdrop-filter:blur(16px);padding:24px;gap:22px;font-size:18px;transform:translateY(-130%);visibility:hidden;opacity:0;transition:.4s;border-bottom:1px solid #ffffff14}
+ nav.op{transform:none;visibility:visible;opacity:1}.burger{display:block}
+ .desk{height:400px}.nb{left:0}
+}
+@media(max-width:700px){
+ .rg,.plans,.acc,.ch,.pairs,.rcp{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .w{padding-left:18px;padding-right:18px}
+ section{padding-top:64px;padding-bottom:64px}
+ .lt-top{padding-top:130px}.lt-bot{padding-bottom:130px}
+ #hero{padding-top:110px;min-height:auto}
+ #hero .w{gap:20px}
+ .btn{width:100%}
+ .stage{height:560px;max-width:100%}
+ .stage .ph.a{width:min(280px,86vw);height:540px;transform:translateX(-50%)}
+ .ph{max-width:100%}
+ .pc{padding:28px 22px;min-width:0}
+ .pc .pr{white-space:normal;font-size:32px}
+ .nb{max-width:78%}
+ #escolha .ph{max-width:90vw}
+ .ch>div{padding:28px 22px}
+ footer nav{justify-content:flex-start}
+ #glow,#parts{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.chart i{height:var(--h,50%)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#hero">Pular para o conteúdo</a>
+<header id="hd"><div class="w hb">
+ <a href="#hero" class="logo">ANOTEI<i></i></a>
+ <nav id="nv"><a href="#produto">Produto</a><a href="#para-quem">Para quem é</a><a href="#plano">Planos</a><a class="btn p" style="min-height:44px;padding:0 20px;font-size:14px" href="#plano">Começar grátis</a></nav>
+ <button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false" aria-controls="nv"><b></b><b></b></button>
+</div></header>
+
+<main>
+<!-- 1 · OFERTA -->
+<section id="hero" class="line">
+ <canvas id="parts" aria-hidden="true"></canvas><canvas id="glow" aria-hidden="true"></canvas>
+ <div class="w">
+  <div class="rv">
+   <span class="eyebrow">GESTÃO SIMPLES PARA PEQUENOS NEGÓCIOS</span>
+   <h1>Chega de controlar <span class="g">seu negócio no caderno.</span></h1>
+   <p class="sub">Organize finanças, estoque, clientes e anotações em um só app e descubra, de verdade, quanto o seu negócio lucra.</p>
+   <div class="cta"><a class="btn p" href="#plano">Começar gratuitamente →</a><a class="btn s" href="#para-quem">▶ Ver depoimento</a></div>
+   <p class="small">Grátis para começar · Premium a partir de R$ 20,58/mês no plano anual.</p>
+  </div>
+  <div class="stage rv">
+   <div class="ph b glass" data-s="fin"></div>
+   <div class="ph a glass" data-s="dash"></div>
+  </div>
+ </div>
+</section>
+
+<!-- 2 · IDENTIFICAÇÃO + DEPOIMENTO (logo abaixo da oferta) -->
+<section id="para-quem" class="lt lt-top"><div class="w">
+ <div>
+  <span class="eyebrow rv">PARA QUEM É O ANOTEI</span>
+  <h2 class="rv">O ANOTEI é para você que tem um negócio e <span style="color:#0a9a1e">se sente perdido.</span></h2>
+  <ul class="ck">
+   <li class="rv" style="--d:.1s">Tem um comércio ou é microempreendedor.</li>
+   <li class="rv" style="--d:.2s">Sente que o negócio não dá lucro e não sabe por quê.</li>
+   <li class="rv" style="--d:.3s">Controla o estoque de cabeça e se perde.</li>
+   <li class="rv" style="--d:.4s">Mistura as contas e anota tudo em caderno e WhatsApp.</li>
+  </ul>
+  <div class="chips rv"><span>👕 Loja de roupas</span><span>💈 Barbearia</span><span>🏪 Pequeno comércio</span><span>📦 Vendedor online</span><span>🛠️ Prestador de serviço</span><span>🚀 Autônomo</span></div>
+  <p style="font-size:19px;font-weight:700;color:#0b120d" class="rv">Você não precisa começar grande. Precisa começar organizado.</p>
+ </div>
+ <div class="vcol rv">
+  <h3>Quem conhece, entende a diferença.</h3>
+  <p style="margin-top:8px">Veja este depoimento e conheça uma experiência real.</p>
+  <div class="vp"><video controls playsinline preload="metadata" aria-label="Depoimento em vídeo sobre o ANOTEI"><source src="depoimento-anotei.mp4" type="video/mp4">Seu navegador não consegue reproduzir este vídeo.</video></div>
+ </div>
+</div></section>
+
+<!-- 3 · DOR LATENTE -->
+<section id="dor" class="lt lt-bot"><div class="w">
+ <div class="desk rv">
+  <div class="nb">Vendas da semana:<br>Maria – 80<br>João – <s>120</s> ??<br>Estoque? <s>acho 10</s><br>pagar luz...<br>cliente do tênis?</div>
+  <div class="it calc">R$ 0,00</div><div class="it wa">💬 99+ mensagens</div><div class="it pp">conta • nota • recibo</div><div class="pen"></div>
+ </div>
+ <div>
+  <h2 class="rv">Você começa pequeno.</h2>
+  <h2 class="mt rv" style="margin-top:8px;--d:.15s">Mas a bagunça cresce rápido.</h2>
+  <ul class="pains">
+   <li class="rv" style="--d:.1s">Vende, mas no fim do mês não sabe se sobrou dinheiro.</li>
+   <li class="rv" style="--d:.2s">Controla o estoque de cabeça e só descobre que acabou quando o cliente pergunta.</li>
+   <li class="rv" style="--d:.3s">Cliente comprou e você não lembra quem foi nem o que levou.</li>
+   <li class="rv" style="--d:.4s">Anotações espalhadas em caderno, papel e WhatsApp.</li>
+  </ul>
+  <p class="rv" style="font-size:20px;font-weight:700;color:#0b120d">E o pior: você trabalha o dia inteiro sem saber se está no lucro ou no prejuízo.</p>
+ </div>
+</div></section>
+
+<!-- 4 · TRANSIÇÃO DA DOR PARA A SOLUÇÃO -->
+<section id="solucao" class="line"><div class="w">
+ <span class="eyebrow">A VIRADA</span>
+ <h2 style="font-size:clamp(40px,8vw,104px)">Do caderno<br><span class="g">para o controle.</span></h2>
+ <div class="morph" id="mo"><div class="nb" id="mnb">Vendi 3 hoje<br>Gastei 40<br>Sobrou?</div><div class="ph glass" id="mph" data-s="dash"></div></div>
+ <div class="pairs">
+  <div class="rv"><span>Anotação</span><b>→ Organização</b></div><div class="rv" style="--d:.08s"><span>Venda</span><b>→ Faturamento</b></div><div class="rv" style="--d:.16s"><span>Despesa</span><b>→ Financeiro</b></div>
+  <div class="rv"><span>Produto</span><b>→ Estoque</b></div><div class="rv" style="--d:.08s"><span>Cliente</span><b>→ Histórico</b></div><div class="rv" style="--d:.16s"><span>Confusão</span><b>→ Clareza</b></div>
+ </div>
+ <p class="big rv">Você registra. <span class="g">O ANOTEI organiza.</span></p>
+</div></section>
+
+<!-- 5 · O QUE A PESSOA VAI RECEBER -->
+<section id="recebe" class="line"><div class="w">
+ <span class="eyebrow">O QUE VOCÊ VAI RECEBER</span>
+ <h2 class="rv">O que muda no seu negócio <span class="g">depois do ANOTEI.</span></h2>
+ <div class="rg">
+  <div class="bc rv"><div class="mv"><small class="mt">Entradas e saídas</small><div class="chart"><i data-h="35"></i><i data-h="60"></i><i data-h="45"></i><i data-h="80"></i><i data-h="55"></i><i data-h="90"></i><i data-h="70"></i></div></div><h3>Saber para onde seu dinheiro está indo</h3><p>Cada entrada e cada saída registradas, com o saldo sempre à vista.</p></div>
+  <div class="bc rv" style="--d:.1s"><div class="mv"><div class="row">Fornecedor<em class="r">−R$ 340</em></div><div class="row">Produto parado<em class="r">12 un.</em></div><div class="row">Conta a vencer<em class="r">−R$ 800</em></div><div class="row">Venda · Pix<em>+R$ 250</em></div></div><h3>Enxergar os gargalos e as perdas</h3><p>Descubra onde o dinheiro está escapando para poder agir.</p></div>
+  <div class="bc rv"><div class="mv"><small class="mt">Lucro do mês</small><b class="g" style="font-size:30px;display:block;margin:8px 0">R$ <span class="cn" data-n="3430">0</span></b><span class="pill">Faturamento − despesas</span></div><h3>Mais clareza para o dinheiro sobrar</h3><p>Com as finanças organizadas, você decide com números e não no chute.</p></div>
+  <div class="bc rv" style="--d:.1s"><div class="mv"><div class="row">Camiseta branca<b>24 un. ✓</b></div><div class="row">Camiseta preta<b>8 un. ✓</b></div><div class="row">Calça jeans<b>42 un. ✓</b></div><div class="row">Tênis<span class="tag">ESTOQUE BAIXO</span></div></div><h3>Estoque organizado com um clique</h3><p>Veja o que tem, o que está acabando e o que repor.</p></div>
+ </div>
+</div></section>
+
+<!-- 6 · ENTREGÁVEL: O QUE TEM DENTRO DO PRODUTO -->
+<section id="produto" class="line"><div class="w">
+ <span class="eyebrow">DENTRO DO ANOTEI</span>
+ <h2 class="rv">Tudo o que você usa <span class="g">no dia a dia.</span></h2>
+ <div class="show" id="show">
+  <div class="tabs" role="tablist" aria-label="Recursos do ANOTEI">
+   <button class="tab" role="tab" type="button" data-k="cli"><b>Clientes</b><small>Cadastre cada cliente com nome, o que comprou e a última compra.</small></button>
+   <button class="tab" role="tab" type="button" data-k="est"><b>Estoque</b><small>Veja quanto tem de cada produto e quando está acabando.</small></button>
+   <button class="tab" role="tab" type="button" data-k="dash"><b>Dashboard</b><small>Faturamento, despesas e lucro: saiba se o mês fechou no lucro ou no prejuízo.</small></button>
+   <button class="tab" role="tab" type="button" data-k="fin"><b>Financeiro</b><small>Entradas, saídas, contas a pagar e a receber.</small></button>
+   <button class="tab" role="tab" type="button" data-k="cad"><b>Caderno</b><small>Suas anotações, checklists e lembretes em um só lugar.</small></button>
+  </div>
+  <div class="ph glass" id="shPh"><div class="scr"></div></div>
+  <p id="tabDesc" aria-live="polite"></p>
+ </div>
+</div></section>
+
+<!-- 7 · RECAPITULAÇÃO, VALOR E ACESSO -->
+<section id="plano" class="line"><div class="w">
+ <span class="eyebrow">TUDO O QUE VOCÊ RECEBE</span>
+ <h2 class="rv">Recapitulando: <span class="g">o ANOTEI completo.</span></h2>
+ <div class="rcp">
+  <div class="rv"><b>Dashboard</b><span>Lucro, despesas e saldo num só olhar.</span></div>
+  <div class="rv" style="--d:.06s"><b>Financeiro</b><span>Entradas, saídas, contas a pagar e a receber.</span></div>
+  <div class="rv" style="--d:.12s"><b>Estoque</b><span>Produtos e quantidades sempre atualizados.</span></div>
+  <div class="rv"><b>Clientes</b><span>Nome, o que comprou e a última compra.</span></div>
+  <div class="rv" style="--d:.06s"><b>Caderno da empresa</b><span>Notas, checklists, tags e lembretes.</span></div>
+  <div class="rv" style="--d:.12s"><b>Inteligência artificial</b><span>Transforma anotações em tarefas.</span></div>
+ </div>
+ <h2 class="rv" style="font-size:clamp(30px,4vw,48px)">Escolha como <span class="g">começar.</span></h2>
+ <div class="plans">
+  <div class="pc"><h3>GRÁTIS</h3><div class="pr">R$ 0,00<small>/ sempre</small></div><ul><li>Versão simplificada do dashboard</li><li>Até 5 movimentações no total</li><li>Até 3 produtos cadastrados</li><li>Informações básicas e perfil</li></ul><a class="btn s" href="#escolha">Começar grátis</a></div>
+  <div class="pc hi"><h3>PREMIUM</h3><b style="font-size:20px">Anotei Premium</b>
+   <div class="sg" role="group" aria-label="Período de cobrança"><button type="button" data-k="m" aria-pressed="false"><b>Mensal</b></button><button type="button" data-k="t" aria-pressed="true"><b>Trimestral</b><small>Mais recomendado</small></button><button type="button" data-k="a" aria-pressed="false"><b>Anual</b><small>Melhor valor por mês</small></button></div>
+   <div class="pr" aria-live="polite"><span id="pp">R$ 79,90</span><small id="pe">/3 meses</small></div><p class="mt" id="pn" style="font-size:13px;margin-top:-2px">Total a cada 3 meses · equivale a aproximadamente R$ 26,63 por mês</p>
+   <ul><li>Tudo do Grátis</li><li>Vendas, produtos e clientes ilimitados</li><li>Financeiro e estoque completos</li><li>Relatórios</li><li>Cadernos ilimitados e personalizados</li><li>Tags, lembretes e anexos</li><li>Busca avançada e exportação</li><li>Sincronização e backup</li><li>Inteligência artificial</li></ul><a class="btn p" id="buy" href="https://pay.cakto.com.br/sdnbegr">Quero o Premium</a></div>
+ </div>
+ <h2 class="rv" style="font-size:clamp(26px,3.4vw,38px);margin-top:80px">Como você recebe o <span class="g">seu acesso.</span></h2>
+ <div class="acc">
+  <div class="rv"><b>Escolha seu plano</b><span>Grátis para conhecer ou Premium para ter tudo.</span></div>
+  <div class="rv" style="--d:.1s"><b>Finalize no checkout</b><span>O pagamento do Premium é feito no checkout da Cakto.</span></div>
+  <div class="rv" style="--d:.2s"><b>Comece a organizar</b><span>Receba o acesso ao ANOTEI e registre sua primeira venda.</span></div>
+ </div>
+</div></section>
+
+<!-- 8 · ESCOLHA FINAL -->
+<section id="escolha"><div class="ph" data-s="dash"></div><div class="w">
+ <h2 class="rv" style="font-size:clamp(36px,6vw,80px)">Você tem <span class="g">duas escolhas.</span></h2>
+ <div class="ch">
+  <div class="no rv"><h3>Continuar como antes</h3><ul><li>Caderno, papéis e anotações perdidas</li><li>Estoque de cabeça</li><li>Sem saber se está no lucro ou no prejuízo</li></ul></div>
+  <div class="yes rv" style="--d:.12s"><h3>Mudar agora com o ANOTEI</h3><ul><li>Finanças organizadas em um só lugar</li><li>Estoque, clientes e caderno no mesmo app</li><li>Clareza para decidir com números</li></ul><a class="btn p" href="#plano">Quero mudar agora</a></div>
+ </div>
+ <p class="tagl rv">Do caderno para o controle.</p>
+</div></section>
+</main>
+
+<footer><div class="w"><div><a href="#hero" class="logo">ANOTEI<i></i></a><p class="mt" style="margin-top:8px">Do caderno para o controle.</p><p class="mt" style="font-size:12px;margin-top:10px">Telas e valores do app são ilustrativos.</p></div>
+<nav><a href="#produto">Produto</a><a href="#para-quem">Para quem é</a><a href="#plano">Planos</a><a href="#">Termos</a><a href="#">Privacidade</a><a href="#">Contato</a></nav></div></footer>
+
+<script>
+const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const bars=n=>`<div class="chart">${Array.from({length:n},(_,i)=>`<i data-h="${30+Math.abs(Math.sin(i*1.3))*65|0}"></i>`).join('')}</div>`;
+const S={
+ dash:`<h4>Olá! 👋</h4><div class="kp"><div><small>Faturamento</small><b>R$ <span class="cn" data-n="4850">0</span></b></div><div><small>Despesas</small><b>R$ <span class="cn" data-n="1420">0</span></b></div><div><small>Lucro</small><b class="g">R$ <span class="cn" data-n="3430">0</span></b></div><div><small>Saldo</small><b>R$ <span class="cn" data-n="3430">0</span></b></div></div>${bars(7)}<div class="row">Camiseta branca<em>+R$ 59</em></div><div class="row">Calça jeans<em>+R$ 149</em></div>`,
+ fin:`<h4>Financeiro</h4><div class="kp"><div><small>Entradas</small><b class="g">R$ 4.850</b></div><div><small>Saídas</small><b>R$ 1.420</b></div></div><div class="row">A receber<em>R$ 620</em></div><div class="row">A pagar<em class="r">R$ 800</em></div><div class="row">Venda · Pix<em>+R$ 250</em></div><div class="row">Fornecedor<em class="r">−R$ 340</em></div><div class="row"><b>Saldo</b><em>R$ 3.430</em></div>`,
+ est:`<h4>Estoque</h4><div class="row">Camiseta branca<b>24 un.</b></div><div class="row">Camiseta preta<b>8 un.</b></div><div class="row">Calça jeans<b>42 un.</b></div><div class="row">Tênis<span class="tag">ESTOQUE BAIXO</span></div>${bars(5)}`,
+ cli:`<h4>Clientes</h4>${['Camiseta branca','Calça jeans','Tênis','Camiseta preta'].map((p,i)=>`<div class="row"><div><b>Cliente 0${i+1}</b><br><small class="mt">Comprou: ${p} · há ${i+2} dias</small></div><em>R$ ${(i+1)*180}</em></div>`).join('')}`,
+ cad:`<h4>Caderno</h4><div class="row">📝 Notas<b>12</b></div><div class="row">☑️ Checklist<b>5</b></div><div class="row">⭐ Favoritos<b>3</b></div><div class="row">🏷️ Tags · Lembretes<b>8</b></div><div class="row">🔎 Busca</div>`
+};
+const DESC={cli:'Cadastre cada cliente com nome, o que comprou e a última compra.',est:'Veja quanto tem de cada produto e quando está acabando.',dash:'Faturamento, despesas e lucro: saiba se o mês fechou no lucro ou no prejuízo.',fin:'Entradas, saídas, contas a pagar e a receber.',cad:'Suas anotações, checklists e lembretes em um só lugar.'};
+const ph=(el,k)=>{el.insertAdjacentHTML('afterbegin',`<div class="scr">${S[k]}</div>`)};
+$$('[data-s]').forEach(e=>ph(e,e.dataset.s));
+function anim(root){
+ $$('.chart i',root).forEach((b,i)=>{const h=b.dataset.h+'%';if(RM){b.style.height=h;return}setTimeout(()=>b.style.height=h,150+i*80)});
+ $$('.cn',root).forEach(c=>{if(c.dataset.d)return;c.dataset.d=1;const n=+c.dataset.n;if(RM){c.textContent=n.toLocaleString('pt-BR');return}const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1400);c.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString('pt-BR');p<1&&requestAnimationFrame(f)})(t0)})
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');anim(e.target);io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv,.ph').forEach(e=>io.observe(e));
+// header e menu
+const hd=$('#hd'),nv=$('#nv'),bgb=$('#bg');
+addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>30),{passive:true});
+const tg=o=>{nv.classList.toggle('op',o);bgb.setAttribute('aria-expanded',o);bgb.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')};
+bgb.onclick=()=>tg(!nv.classList.contains('op'));$$('#nv a').forEach(a=>a.onclick=()=>tg(false));addEventListener('keydown',e=>{if(e.key==='Escape')tg(false)});
+// 3 · caderno vira celular ao rolar
+const mo=$('#mo'),mnb=$('#mnb'),mph=$('#mph');
+function morph(){const r=mo.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(innerHeight*.6)));
+ mnb.style.opacity=1-p;mnb.style.transform=`rotate(${-5+p*10}deg) scale(${1-p*.3})`;mph.style.opacity=p;mph.style.transform=`translateY(${(1-p)*60}px) scale(${.85+p*.15})`}
+addEventListener('scroll',morph,{passive:true});addEventListener('resize',morph);morph();
+// 5 · vitrine do produto (troca sozinha enquanto visível)
+const show=$('#show'),tabs=$$('.tab',show),shScr=$('#shPh .scr'),tabDesc=$('#tabDesc'),keys=tabs.map(t=>t.dataset.k);
+let cur=0,tm=null;
+function pick(i){cur=i;tabs.forEach(t=>t.setAttribute('aria-selected','false'));void show.offsetWidth;tabs[i].setAttribute('aria-selected','true');
+ shScr.className='scr';void shScr.offsetWidth;shScr.className='scr sw';shScr.innerHTML=S[keys[i]];anim(shScr);tabDesc.textContent=DESC[keys[i]]}
+function run(){stop();if(RM)return;tm=setInterval(()=>pick((cur+1)%keys.length),4500)}
+function stop(){clearInterval(tm);tm=null}
+tabs.forEach((t,i)=>t.onclick=()=>{pick(i);run()});
+if(RM)show.classList.add('static');
+pick(0);
+new IntersectionObserver(e=>{if(e[0].isIntersecting){pick(cur);run()}else stop()},{threshold:.3}).observe(show);
+// 7 · plano premium e checkout
+const PR={m:['R$ 37,00','/mês','Cobrança mensal','https://pay.cakto.com.br/botom8e_1263593'],t:['R$ 79,90','/3 meses','Total a cada 3 meses · equivale a aproximadamente R$ 26,63 por mês','https://pay.cakto.com.br/sdnbegr'],a:['R$ 247,00','/12 meses','Total por 12 meses · equivale a aproximadamente R$ 20,58 por mês','https://pay.cakto.com.br/botom8e_1263593']};
+$$('.sg button').forEach(b=>b.onclick=()=>{$$('.sg button').forEach(x=>x.setAttribute('aria-pressed',x===b));const v=PR[b.dataset.k];$('#pp').textContent=v[0];$('#pe').textContent=v[1];$('#pn').textContent=v[2];$('#buy').href=v[3]});
+// 1 · brilho do cursor, partículas e parallax (só desktop)
+if(matchMedia('(pointer:fine)').matches&&innerWidth>960&&!RM){
+ let hv=true;new IntersectionObserver(e=>{hv=e[0].isIntersecting}).observe($('#hero'));
+ const c=$('#glow'),x=c.getContext('2d'),h=$('#hero');let W,H,pts=[],m={x:0,y:0},p={x:0,y:0},last=0,act=false;
+ const rs=()=>{W=c.width=h.offsetWidth;H=c.height=h.offsetHeight};rs();addEventListener('resize',rs);
+ h.addEventListener('mousemove',e=>{const r=h.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top;last=performance.now();if(!act){p={...m};act=true}});
+ (function f(t){if(!hv||document.hidden){requestAnimationFrame(f);return}x.clearRect(0,0,W,H);if(act){p.x+=(m.x-p.x)*.16;p.y+=(m.y-p.y)*.16;pts.push({x:p.x+(Math.random()-.5)*2,y:p.y+(Math.random()-.5)*2})}
+  if(pts.length>40||(t-last>700&&pts.length))pts.shift();
+  for(let i=1;i<pts.length;i++){const a=i/pts.length;x.beginPath();x.moveTo(pts[i-1].x,pts[i-1].y);x.lineTo(pts[i].x,pts[i].y);x.lineCap='round';x.lineWidth=11*a*.8;x.strokeStyle=`rgba(10,217,39,${a*.55})`;x.shadowColor='#19c314';x.shadowBlur=26*a;x.stroke()}
+  if(pts.length){const q=pts[pts.length-1],g=x.createRadialGradient(q.x,q.y,0,q.x,q.y,70);g.addColorStop(0,'rgba(10,217,39,.45)');g.addColorStop(1,'transparent');x.shadowBlur=0;x.fillStyle=g;x.fillRect(q.x-70,q.y-70,140,140)}
+  requestAnimationFrame(f)})(0);
+ const pc=$('#parts'),px=pc.getContext('2d');pc.width=h.offsetWidth;pc.height=h.offsetHeight;
+ const P=Array.from({length:45},()=>({x:Math.random()*pc.width,y:Math.random()*pc.height,r:Math.random()*1.5+.4,v:Math.random()*.25+.05}));
+ (function g(){if(!hv||document.hidden){requestAnimationFrame(g);return}px.clearRect(0,0,pc.width,pc.height);px.fillStyle='rgba(10,217,39,.5)';P.forEach(o=>{o.y-=o.v;if(o.y<0)o.y=pc.height;px.beginPath();px.arc(o.x,o.y,o.r,0,7);px.fill()});requestAnimationFrame(g)})();
+ h.addEventListener('mousemove',e=>{const s=$('.stage'),dx=(e.clientX/innerWidth-.5)*14,dy=(e.clientY/innerHeight-.5)*10;s.style.translate=`${dx}px ${dy}px`});
+ h.addEventListener('mouseleave',()=>{const s=$('.stage');if(s)s.style.translate='0 0'});
+}
+</script>
+</body>
+</html>
